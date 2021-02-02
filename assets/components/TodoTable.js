@@ -11,10 +11,12 @@ import DoneIcon from '@material-ui/icons/Done';
 import AddIcon from '@material-ui/icons/Add';
 import React, {useContext, useState, Fragment} from 'react';
 import {TodoContext} from '../contexts/TodoContext';
+import DeleteDialog from './DeleteDialog';
 
 function TodoTable(){
 
     const context = useContext(TodoContext);  
+
     const [addTodo, setAddTodo] = useState('');
     const [addTodo1, setAddTodo1] = useState('');  
     const [addTodo2, setAddTodo2] = useState('');  
@@ -29,6 +31,7 @@ function TodoTable(){
     const [addTodo11, setAddTodo11] = useState('');  
     const [addTodo12, setAddTodo12] = useState('');  
     const [addTodo13, setAddTodo13] = useState('');
+
     const [editIsShown, setEditIsShown] = useState(false);
     const [editIsShown1, setEditIsShown1] = useState(false);
     const [editIsShown2, setEditIsShown2] = useState(false);
@@ -43,6 +46,7 @@ function TodoTable(){
     const [editIsShown11, setEditIsShown11] = useState(false);
     const [editIsShown12, setEditIsShown12] = useState(false);
     const [editIsShown13, setEditIsShown13] = useState(false);
+
     const [editTodo, setEditTodo] = useState('');
     const [editTodo1, setEditTodo1] = useState('');
     const [editTodo2, setEditTodo2] = useState('');   
@@ -58,7 +62,11 @@ function TodoTable(){
     const [editTodo12, setEditTodo12] = useState('');   
     const [editTodo13, setEditTodo13] = useState('');  
 
+    const [deleteConfirmationIsShown, setDeleteConfirmationIsShown] = useState(false);
+
+    const [todoToBeDeleted, setTodoToBeDeleted] = useState(null);
         return (
+            <Fragment>
             <form onSubmit={(event) => {
                 context.createTodo(event, {name: addTodo, company: addTodo1, customer: addTodo2, customerPostalCode: addTodo3, companyPostalCode: addTodo4, customerPhoneNumber: addTodo5, companyPhoneNumber: addTodo6, firstField: addTodo7, firstPrice: addTodo8, secondField: addTodo9, secondPrice: addTodo10, thirdField: addTodo11, thirdPrice: addTodo12, total: addTodo13});
                 }}>
@@ -396,13 +404,18 @@ function TodoTable(){
 
                     <TableCell>
                     <IconButton onClick={() => {setEditIsShown(todo.id); setEditIsShown1(todo.id) ; setEditIsShown2(todo.id); setEditIsShown3(todo.id) ; setEditIsShown4(todo.id); setEditIsShown5(todo.id) ; setEditIsShown6(todo.id); setEditIsShown7(todo.id) ; setEditIsShown8(todo.id); setEditIsShown9(todo.id) ; setEditIsShown10(todo.id); setEditIsShown11(todo.id) ; setEditIsShown12(todo.id); setEditIsShown13(todo.id); setEditTodo(todo.name); setEditTodo1(todo.company); setEditTodo2(todo.customer); setEditTodo3(todo.customerPostalCode); setEditTodo4(todo.companyPostalCode); setEditTodo5(todo.customerPhoneNumber); setEditTodo6(todo.companyPhoneNumber); setEditTodo7(todo.firstField); setEditTodo8(todo.firstPrice); setEditTodo9(todo.secondField); setEditTodo10(todo.secondPrice); setEditTodo11(todo.thirdField); setEditTodo12(todo.thirdPrice); setEditTodo13(todo.total) }}><EditIcon></EditIcon></IconButton>
-                        <IconButton><DeleteIcon></DeleteIcon></IconButton>
+                        <IconButton><DeleteIcon onClick={() => {setDeleteConfirmationIsShown(true); setTodoToBeDeleted(todo)}}></DeleteIcon></IconButton>
                     </TableCell>
                     </TableRow>
                     ))}
                 </TableBody>
             </Table>
             </form>
+            {deleteConfirmationIsShown && (
+
+            <DeleteDialog todo={todoToBeDeleted} open={deleteConfirmationIsShown} setDeleteConfirmationIsShown={setDeleteConfirmationIsShown}/>                
+            )}
+            </Fragment>
             );           
 }
 
