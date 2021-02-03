@@ -18,11 +18,17 @@ class TodoContextProvider extends React.Component {
     createTodo(event, todo) {
 
         event.preventDefault();
-        let data = [...this.state.todos];
-        data.push(todo);
-        this.setState({
-            todos: data,
-        });
+        axios.post('/api/todo/create', todo)
+            .then(response=> {
+                console.log(response.data);
+                let data = [...this.state.todos];
+                data.push(response.data.todo);
+                this.setState({
+                    todos: data,
+                });
+            }).catch(error => {
+                console.error(error);
+            })
 
     }
 
@@ -38,41 +44,50 @@ class TodoContextProvider extends React.Component {
     }
 
     updateTodo(data){
-        let todos = [...this.state.todos];
-        let todo = todos.find(todo => {
-            return todo.id === data.id;
-        })
-        todo.name = data.name;
-        todo.company = data.company;
-        todo.customer = data.customer;
-        todo.customerPostalCode = data.customerPostalCode;
-        todo.companyPostalCode = data.companyPostalCode;
-        todo.customerPhoneNumber = data.customerPhoneNumber;
-        todo.companyPhoneNumber = data.companyPhoneNumber;
-        todo.firstField = data.firstField;
-        todo.secondField = data.secondField;
-        todo.secondPrice = data.secondPrice;
-        todo.thirdField = data.thirdField;
-        todo.thirdPrice = data.thirdPrice;
-        todo.total = data.total;
-
-
-        this.setState({
-            todos: todos,
-        });
+        axios.put('/api/todo/update/' + data.id, data)
+            .then(response => {
+                let todos = [...this.state.todos];
+                let todo = todos.find(todo => {
+                    return todo.id === data.id;
+                })
+                todo.name = data.name;
+                todo.company = data.company;
+                todo.customer = data.customer;
+                todo.customerPostalCode = data.customerPostalCode;
+                todo.companyPostalCode = data.companyPostalCode;
+                todo.customerPhoneNumber = data.customerPhoneNumber;
+                todo.companyPhoneNumber = data.companyPhoneNumber;
+                todo.firstField = data.firstField;
+                todo.secondField = data.secondField;
+                todo.secondPrice = data.secondPrice;
+                todo.thirdField = data.thirdField;
+                todo.thirdPrice = data.thirdPrice;
+                todo.total = data.total;
+                this.setState({
+                    todos: todos,
+                });
+            }).catch(error=> {
+                console.error(error);
+            })
     }
 
     deleteTodo(data){
-        let todos = [...this.state.todos];
-        let todo = todos.find(todo => {
-            return todo.id === data.id;
-        });
+        axios.delete('/api/todo/delete/' + data.id)
+            .then(response => {
+                //message
+                let todos = [...this.state.todos];
+                let todo = todos.find(todo => {
+                    return todo.id === data.id;
+                });
 
-        todos.splice(todos.indexOf(todo), 1);
+                todos.splice(todos.indexOf(todo), 1);
 
-        this.setState({
-            todos: todos,
-        });
+                this.setState({
+                    todos: todos,
+                });
+            }).catch(error => {
+                console.error(error);
+            });
     }
 
 
