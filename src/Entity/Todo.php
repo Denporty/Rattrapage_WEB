@@ -259,4 +259,8 @@ class Todo
 
         return $this;
     }
+    public function toArray()
+    {
+        return ['id' => $this->id, 'name' => $this->name, 'company' => $this->company, 'customer' => $this->customer, 'customerPostalCode' => $this->customerPostalCode, 'companyPostalCode' => $this->companyPostalCode, 'customerPhoneNumber' => $this->customerPhoneNumber, 'companyPhoneNumber' => $this->companyPhoneNumber, 'firstField' => $this->firstField, 'firstPrice' => $this->firstPrice, 'secondField' => $this->secondField, 'secondPrice' => $this->secondPrice, 'thirdField' => $this->thirdField, 'thirdPrice' => $this->thirdPrice, 'total' => $this->total];
+    }
 }
