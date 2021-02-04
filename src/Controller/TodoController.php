@@ -67,11 +67,14 @@ class TodoController extends AbstractController
            $this->entityManager->persist($todo);
            $this->entityManager->flush();
        } catch (Exception $exception) {
-           //error
-       }
+        return $this->json([
+            'message' => ["text" => ["Le devis n'as pas était ajouté !"], "level" => "error"]
+        ]);
+
+    }
        return $this->json([
         'todo' => $todo->toArray(),
-        'message' => ["text" => 'Le devis a bien était ajouté !', "level" => "success"]
+        'message' => ["text" => ['Le devis a bien était ajouté !', 'Devis: ' . $content->name], "level" => "success"]
     ]);
     }
     /**
@@ -126,7 +129,7 @@ class TodoController extends AbstractController
         }
 
         return $this->json([
-            'message' => 'todo has been delected',
+            'message' => 'Le devis a était supprimé !',
         ]);
      }
 
