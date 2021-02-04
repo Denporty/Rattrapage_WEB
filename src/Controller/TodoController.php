@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Entity\Todo;
@@ -17,9 +16,6 @@ use App\Form\TodoType;
 #[Route('/api/todo', name: 'api_todo')]
 class TodoController extends AbstractController
 {
-    /**
-     * @var EntityManagerInterface
-     */
     private $entityManager;
     private $todoRepository;
 
@@ -30,7 +26,7 @@ class TodoController extends AbstractController
         $this->todoRepository = $todoRepository;
     }
     #[Route('/read', name: 'api_todo_read')]
-    public function index(): Response
+    public function read(): Response
     {
        $todos = $this->todoRepository->findAll();
 
@@ -61,15 +57,6 @@ class TodoController extends AbstractController
                 'message' => ['text' => implode("\n", $errors), 'level' => 'error'],
             ]);
         }
-        try {
-            $this->entityManager->persist($todo);
-            $this->entityManager->flush();
-        } catch (UniqueConstraintViolationException $exception) {
-            return $this->json([
-                'message' => ['text' => 'Un devis doit être unique !', 'level' => 'error'],
-            ]);
-        }
-
        $todo = new Todo();
        $todo->setName($content->name);
        $todo->setCompany($content->company);
@@ -109,28 +96,6 @@ class TodoController extends AbstractController
 
      public function update(Request $request, Todo $todo){
         $content = json_decode($request->getContent());
-
-$form = $this->updateForm(TodoType::class);
-       $form->submit((array)$content);
-        if (!$form->isValid()) {
-            $errors = [];
-            foreach ($form->getErrors(true, true) as $error){
-                $propertyName = $error->getOrigin()->getName();
-                $errors[$propertyName] = $error->getMessage();
-            }
-            return $this->json([
-                'message' => ['text' => implode("\n", $errors), 'level' => 'error'],
-            ]);
-        }
-        try {
-            $this->entityManager->persist($todo);
-            $this->entityManager->flush();
-        } catch (UniqueConstraintViolationException $exception) {
-            return $this->json([
-                'message' => ['text' => 'Un devis doit être unique !', 'level' => 'error'],
-            ]);
-        }
-
         $todo->setName($content->name);
         $todo->setCompany($content->company);
         $todo->setCustomer($content->customer);
@@ -177,6 +142,4 @@ $form = $this->updateForm(TodoType::class);
             'message' => 'Le devis a était supprimé !',
         ]);
      }
-
 }
-
