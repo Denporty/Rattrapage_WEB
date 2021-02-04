@@ -61,6 +61,7 @@ function TodoTable(){
     const [editTodo11, setEditTodo11] = useState('');   
     const [editTodo12, setEditTodo12] = useState('');   
     const [editTodo13, setEditTodo13] = useState('');  
+    
 
     const [deleteConfirmationIsShown, setDeleteConfirmationIsShown] = useState(false);
 
@@ -80,7 +81,7 @@ function TodoTable(){
                 <TableBody>
                     <TableRow>
                         <TableCell>
-                            <TextField value={addTodo} onChange={(event) => {
+                            <TextField  value={addTodo} onChange={(event) => {
                                 setAddTodo(event.target.value)
                                 }} label="Intitulé du devis"/>
                                                        </TableCell>
@@ -95,18 +96,18 @@ function TodoTable(){
                             <TableCell>
                             <TextField value={addTodo3} onChange={(event) => {
                                 setAddTodo3(event.target.value)
-                                }} label="Code postal du client"/> 
+                                }} label="Code postal client"/> 
                             <TextField value={addTodo4} onChange={(event) => {
                                 setAddTodo4(event.target.value)
-                                }} label="Code postal de la societe émettrice"/> 
+                                }} label="Code postal societe"/> 
                             </TableCell>
                             <TableCell>
                             <TextField value={addTodo5} onChange={(event) => {
                                 setAddTodo5(event.target.value)
-                                }} label="Numéro de téléphone du client"/> 
+                                }} label="N° téléphone client"/> 
                             <TextField value={addTodo6} onChange={(event) => {
                                 setAddTodo6(event.target.value)
-                                }} label="Numéro de téléphone de la societe émettrice"/> 
+                                }} label="N° téléphone societe"/> 
                             </TableCell>
                             <TableCell>
                             <TextField value={addTodo7} onChange={(event) => {
@@ -114,7 +115,7 @@ function TodoTable(){
                                 }} label="Premiere ligne"/> 
                             <TextField value={addTodo8} onChange={(event) => {
                                 setAddTodo8(event.target.value)
-                                }} label="Prix premiere ligne"/> 
+                                }} label="Prix ligne 1"/> 
                             </TableCell>
                             <TableCell>
                             <TextField value={addTodo9} onChange={(event) => {
@@ -122,7 +123,7 @@ function TodoTable(){
                                 }} label="Seconde ligne"/> 
                             <TextField value={addTodo10} onChange={(event) => {
                                 setAddTodo10(event.target.value)
-                                }} label="Prix seconde ligne"/> 
+                                }} label="Prix ligne 2"/> 
                             </TableCell>
                             <TableCell>
                             <TextField value={addTodo11} onChange={(event) => {
@@ -130,7 +131,7 @@ function TodoTable(){
                                 }} label="Troisieme ligne"/> 
                             <TextField value={addTodo12} onChange={(event) => {
                                 setAddTodo12(event.target.value)
-                                }} label="Prix troisieme ligne"/> 
+                                }} label="Prix ligne 3"/> 
                             </TableCell>
                         
                             <TableCell>
