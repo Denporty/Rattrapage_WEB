@@ -11,6 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Form\TodoType;
+
 
 #[Route('/api/todo', name: 'api_todo')]
 class TodoController extends AbstractController
@@ -47,6 +49,27 @@ class TodoController extends AbstractController
     public function create(Request $request)
     {
        $content = json_decode($request->getContent());
+       $form = $this->createForm(TodoType::class);
+       $form->submit((array)$content);
+        if (!$form->isValid()) {
+            $errors = [];
+            foreach ($form->getErrors(true, true) as $error){
+                $propertyName = $error->getOrigin()->getName();
+                $errors[$propertyName] = $error->getMessage();
+            }
+            return $this->json([
+                'message' => ['text' => implode("\n", $errors), 'level' => 'error'],
+            ]);
+        }
+        try {
+            $this->entityManager->persist($todo);
+            $this->entityManager->flush();
+        } catch (UniqueConstraintViolationException $exception) {
+            return $this->json([
+                'message' => ['text' => 'Un devis doit être unique !', 'level' => 'error'],
+            ]);
+        }
+
        $todo = new Todo();
        $todo->setName($content->name);
        $todo->setCompany($content->company);
