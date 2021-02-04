@@ -39,9 +39,11 @@ class TodoController extends AbstractController
        }
        return $this->json($arrayOfTodos);
     }
-        #[Route('/create', name: 'api_todo_create')]
-    # @param Request $request
-    # @return JsonResponse
+    /**
+     * @Route("/create", name="api_todo_create", methods={"POST"})
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function create(Request $request)
     {
        $content = json_decode($request->getContent());
@@ -64,12 +66,13 @@ class TodoController extends AbstractController
        try {
            $this->entityManager->persist($todo);
            $this->entityManager->flush();
-           return $this->json([
-               'todo' => $todo->toArray(),
-           ]);
        } catch (Exception $exception) {
            //error
        }
+       return $this->json([
+        'todo' => $todo->toArray(),
+        'message' => ["text" => 'Le devis a bien était ajouté !', "level" => "success"]
+    ]);
     }
     /**
      *@Route("/update/{id}", name= "api_todo_update", methods={"PUT"})
