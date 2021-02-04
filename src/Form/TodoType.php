@@ -184,6 +184,18 @@ class TodoType extends AbstractType
                     ])
                 ]
             ])
+            ->add('trackingNumber', TextType::class, [
+                'constraints'=> [
+                    new NotBlank(['message' => "Le numéro de devis ne peut pas être vide !"]),
+                    new Length([
+                        'min' => 10,
+                        'max' => 10,
+
+                        'minMessage' => "Le total du prix du devis doit contenir plus de 1 caractères !",
+                        'maxMessage' => "Vous avez rentré {{ value }} charactéres mais le total du prix du devis ne peut pas contenir plus de {{ limit }} caractères !",
+                    ])
+                ]
+            ])
         ;
     }
 

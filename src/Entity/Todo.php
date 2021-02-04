@@ -87,6 +87,11 @@ class Todo
      */
     private $total;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $trackingNumber;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -259,8 +264,19 @@ class Todo
 
         return $this;
     }
+    public function getTrackingNumber(): ?int
+    {
+        return $this->trackingNumber;
+    }
+
+    public function setTrackingNumber(int $trackingNumber): self
+    {
+        $this->trackingNumber = $trackingNumber;
+
+        return $this;
+    }
     public function toArray()
     {
-        return ['id' => $this->id, 'name' => $this->name, 'company' => $this->company, 'customer' => $this->customer, 'customerPostalCode' => $this->customerPostalCode, 'companyPostalCode' => $this->companyPostalCode, 'customerPhoneNumber' => $this->customerPhoneNumber, 'companyPhoneNumber' => $this->companyPhoneNumber, 'firstField' => $this->firstField, 'firstPrice' => $this->firstPrice, 'secondField' => $this->secondField, 'secondPrice' => $this->secondPrice, 'thirdField' => $this->thirdField, 'thirdPrice' => $this->thirdPrice, 'total' => $this->total];
+        return ['id' => $this->id, 'name' => $this->name, 'company' => $this->company, 'customer' => $this->customer, 'customerPostalCode' => $this->customerPostalCode, 'companyPostalCode' => $this->companyPostalCode, 'customerPhoneNumber' => $this->customerPhoneNumber, 'companyPhoneNumber' => $this->companyPhoneNumber, 'firstField' => $this->firstField, 'firstPrice' => $this->firstPrice, 'secondField' => $this->secondField, 'secondPrice' => $this->secondPrice, 'thirdField' => $this->thirdField, 'thirdPrice' => $this->thirdPrice, 'total' => $this->total, 'trackingNumber' => $this->trackingNumber];
     }
 }

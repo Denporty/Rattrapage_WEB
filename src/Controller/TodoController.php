@@ -45,6 +45,7 @@ class TodoController extends AbstractController
     public function create(Request $request)
     {
        $content = json_decode($request->getContent());
+       //$random = random_int(1111111111, 9999999999);
        $form = $this->createForm(TodoType::class);
        $form->submit((array)$content);
         if (!$form->isValid()) {
@@ -58,6 +59,7 @@ class TodoController extends AbstractController
             ]);
         }
        $todo = new Todo();
+
        $todo->setName($content->name);
        $todo->setCompany($content->company);
        $todo->setCustomer($content->customer);
@@ -72,7 +74,7 @@ class TodoController extends AbstractController
        $todo->setThirdField($content->thirdField);
        $todo->setThirdPrice($content->thirdPrice);
        $todo->setTotal($content->total);
-
+       $todo->setTrackingNumber($content->trackingNumber);
        try {
            $this->entityManager->persist($todo);
            $this->entityManager->flush();
@@ -84,7 +86,7 @@ class TodoController extends AbstractController
     }
        return $this->json([
         'todo' => $todo->toArray(),
-        'message' => ["text" => ['Le devis a bien était ajouté !', 'Devis: ' . $content->name], "level" => "success"]
+        'message' => ["text" => ['Le devis a bien était ajouté ! ',  'N° de devis: ' . $content->trackingNumber], "level" => "success"]
     ]);
     }
     /**
