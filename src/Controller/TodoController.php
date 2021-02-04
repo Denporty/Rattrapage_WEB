@@ -109,6 +109,28 @@ class TodoController extends AbstractController
 
      public function update(Request $request, Todo $todo){
         $content = json_decode($request->getContent());
+
+$form = $this->updateForm(TodoType::class);
+       $form->submit((array)$content);
+        if (!$form->isValid()) {
+            $errors = [];
+            foreach ($form->getErrors(true, true) as $error){
+                $propertyName = $error->getOrigin()->getName();
+                $errors[$propertyName] = $error->getMessage();
+            }
+            return $this->json([
+                'message' => ['text' => implode("\n", $errors), 'level' => 'error'],
+            ]);
+        }
+        try {
+            $this->entityManager->persist($todo);
+            $this->entityManager->flush();
+        } catch (UniqueConstraintViolationException $exception) {
+            return $this->json([
+                'message' => ['text' => 'Un devis doit être unique !', 'level' => 'error'],
+            ]);
+        }
+
         $todo->setName($content->name);
         $todo->setCompany($content->company);
         $todo->setCustomer($content->customer);

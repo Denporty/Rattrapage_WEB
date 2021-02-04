@@ -171,7 +171,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -188,7 +187,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown1(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown1(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -205,7 +203,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo2, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown2(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown2(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -222,7 +219,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown3(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown3(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -239,7 +235,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id, name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown4(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown4(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -257,7 +252,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown5(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown5(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -274,7 +268,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown6(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown6(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -291,7 +284,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown7(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown7(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -308,7 +300,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown8(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown8(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -325,7 +316,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown9(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown9(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -342,7 +332,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown10(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown10(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -359,7 +348,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown11(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown11(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -376,7 +364,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown12(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown12(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -393,7 +380,6 @@ function TodoTable(){
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13});
                          setEditIsShown13(false);
                         }}><DoneIcon/></IconButton>
-                        <IconButton onClick={() => {setEditIsShown13(false)}}></IconButton>
                          </Fragment>,
                       }}
                       />
