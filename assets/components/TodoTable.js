@@ -12,6 +12,30 @@ import AddIcon from '@material-ui/icons/Add';
 import React, {useContext, useState, Fragment} from 'react';
 import {TodoContext} from '../contexts/TodoContext';
 import DeleteDialog from './DeleteDialog';
+import {createStyles, makeStyles, withStyles} from '@material-ui/core';
+
+
+const useStyles = makeStyles(theme=>({
+    thead: {
+        backgroundColor: theme.palette.primary.main,
+    },
+    list: {
+        backgroundColor: theme.palette.secondary.main,
+    },
+    width: {
+        width: "120%",
+    },
+    width2: {
+        width: "130%",
+    },
+    width3: {
+        width: "200%",
+    },
+    width4: {
+        width: "5%",
+    }
+}));
+
 
 function TodoTable(){
 
@@ -70,84 +94,104 @@ function TodoTable(){
     const [deleteConfirmationIsShown, setDeleteConfirmationIsShown] = useState(false);
 
     const [todoToBeDeleted, setTodoToBeDeleted] = useState(null);
+    const classes = useStyles();
         return (
             <Fragment>
             <form onSubmit={(event) => {
                 context.createTodo(event, {name: addTodo, company: addTodo1, customer: addTodo2, customerPostalCode: addTodo3, companyPostalCode: addTodo4, customerPhoneNumber: addTodo5, companyPhoneNumber: addTodo6, firstField: addTodo7, firstPrice: addTodo8, secondField: addTodo9, secondPrice: addTodo10, thirdField: addTodo11, thirdPrice: addTodo12, total: addTodo13, trackingNumber: addTodo14});
                 }}>
             <Table>
-                <TableHead>
+                <TableHead className={classes.thead}>
                     <TableRow>
-                        <TableCell>Task</TableCell>
-                        <TableCell>Action</TableCell>
+                        <TableCell>MonDevis.fr</TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell>Actions</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
+                    <TableRow className={classes.list}>
                         <TableCell>
-                            <TextField  value={addTodo} onChange={(event) => {
+                            <TextField  className={classes.width} value={addTodo} onChange={(event) => {
                                 setAddTodo(event.target.value)
                                 }} label="Intitulé du devis"/>
                                                        </TableCell>
+                                                       <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                            <TextField value={addTodo1} onChange={(event) => {
+                            <TextField className={classes.width} value={addTodo1} onChange={(event) => {
                                 setAddTodo1(event.target.value)
                                 }} label="Societe émettrice"/> 
                                 <TextField value={addTodo2} onChange={(event) => {
                                 setAddTodo2(event.target.value)
                                 }} label="Client"/> 
                             </TableCell>
+                            <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                            <TextField value={addTodo3} onChange={(event) => {
+                            <TextField className={classes.width} value={addTodo3} onChange={(event) => {
                                 setAddTodo3(event.target.value)
                                 }} label="Code postal client"/> 
-                            <TextField value={addTodo4} onChange={(event) => {
+                            <TextField className={classes.width} value={addTodo4} onChange={(event) => {
                                 setAddTodo4(event.target.value)
                                 }} label="Code postal societe"/> 
                             </TableCell>
+                            <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                            <TextField value={addTodo5} onChange={(event) => {
+                            <TextField className={classes.width3} value={addTodo5} onChange={(event) => {
                                 setAddTodo5(event.target.value)
                                 }} label="N° téléphone client"/> 
-                            <TextField value={addTodo6} onChange={(event) => {
+                            <TextField className={classes.width3} value={addTodo6} onChange={(event) => {
                                 setAddTodo6(event.target.value)
                                 }} label="N° téléphone societe"/> 
                             </TableCell>
+                            <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                            <TextField value={addTodo7} onChange={(event) => {
+                            <TextField className={classes.width} value={addTodo7} onChange={(event) => {
                                 setAddTodo7(event.target.value)
                                 }} label="Premiere ligne"/> 
-                            <TextField value={addTodo8} onChange={(event) => {
+                            <TextField className={classes.width} value={addTodo8} onChange={(event) => {
                                 setAddTodo8(event.target.value)
                                 }} label="Prix ligne 1"/> 
                             </TableCell>
+                            <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                            <TextField value={addTodo9} onChange={(event) => {
+                            <TextField className={classes.width} value={addTodo9} onChange={(event) => {
                                 setAddTodo9(event.target.value)
                                 }} label="Seconde ligne"/> 
-                            <TextField value={addTodo10} onChange={(event) => {
+                            <TextField className={classes.width} value={addTodo10} onChange={(event) => {
                                 setAddTodo10(event.target.value)
                                 }} label="Prix ligne 2"/> 
                             </TableCell>
+                            <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                            <TextField value={addTodo11} onChange={(event) => {
+                            <TextField className={classes.width} value={addTodo11} onChange={(event) => {
                                 setAddTodo11(event.target.value)
                                 }} label="Troisieme ligne"/> 
-                            <TextField value={addTodo12} onChange={(event) => {
+                            <TextField className={classes.width} value={addTodo12} onChange={(event) => {
                                 setAddTodo12(event.target.value)
                                 }} label="Prix ligne 3"/> 
                             </TableCell>
-                        
+                            <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                        <TextField value={addTodo13} onChange={(event) => {
+                        <TextField className={classes.width} value={addTodo13} onChange={(event) => {
                                 setAddTodo13(event.target.value)
                                 }} label="Total"/> 
-                            </TableCell>
-                            <TableCell>
-                        <TextField value={addTodo14} onChange={(event) => {
+                        <TextField className={classes.width3} value={addTodo14} onChange={(event) => {
                                 setAddTodo14(event.target.value)
                                 }} label="N° de devis"/> 
                             </TableCell>
+
                             <TableCell>
                             <IconButton type="submit">
                                 <AddIcon/>
