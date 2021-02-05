@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
-import {AppBar, Toolbar, IconButton, Link, Box, Button, Drawer, List, ListItem, ListItemText, ListItemIcon, makeStyles} from '@material-ui/core';
-import {Menu as MenuIcon, List as ListIcon, Label as LabelIcon} from '@material-ui/icons';
+import {Link} from 'react-router-dom';
+import {AppBar, Toolbar, IconButton, Box, Button, Drawer, List, ListItem, ListItemIcon, makeStyles, Typography} from '@material-ui/core';
+import {Menu as MenuIcon, List as ListIcon} from '@material-ui/icons';
+import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles(theme => ({
-
+    menuIcon: {
+        marginRight: theme.spacing(2),
+    },
+    list: {
+        width: '250px'
+    },
+    link: {
+        textDecoration: 'none',
+        color: theme.palette.text.primary,
+    },
 }));
 
 const Navigation = () => {
@@ -13,14 +24,30 @@ const Navigation = () => {
         setDrawerOpen(!drawerOpen);
     };
     const drawerItems = [
-        {text: 'Liste des devis', icon: <ListIcon/>},
-        {text: 'Rechercher un devis', icon: <LabelIcon/>},
+        {text: 'Liste des devis', icon: <ListIcon/>, link: '/todo-list',},
+        {text: 'Rechercher un devis', icon: <SearchIcon/>, link: 'tag-list',},
     ];
     return(
         <AppBar position="fixed">
             <Toolbar>
-                <IconButton><MenuIcon/></IconButton>
+                <IconButton onClick={toggleDrawer} className={classes.menuIcon} edge="start"><MenuIcon/></IconButton>
+                <Link style={{flexGrow: 1}} href="/"  color="textPrimary">
+                <Typography underline="none" color="textPrimary" variant="h6">TodoApp</Typography>
+                </Link>
+                <Button size="large">Login</Button>
             </Toolbar>
+            <Drawer anchor="left" variant="temporary" onClose={toggleDrawer} open={drawerOpen}>
+                <List className={classes.list}>
+                    {drawerItems.map(prop=> (
+                        <Link className={classes.link} to={prop.link} key={prop.text}>
+                        <ListItem onClick={toggleDrawer} button key={prop.text}>
+                            <ListItemIcon>{prop.icon}</ListItemIcon>
+                            <ListItemIcon>{prop.text}</ListItemIcon>
+                        </ListItem>
+                        </Link>
+                    ))}
+                </List>
+            </Drawer>
         </AppBar>
     );
 };
