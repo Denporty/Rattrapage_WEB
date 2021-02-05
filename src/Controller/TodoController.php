@@ -75,6 +75,7 @@ class TodoController extends AbstractController
        $todo->setThirdPrice($content->thirdPrice);
        $todo->setTotal($content->total);
        $todo->setTrackingNumber($content->trackingNumber);
+       $todo->setValidationStep($content->validationStep);
 
        try {
            $this->entityManager->persist($todo);

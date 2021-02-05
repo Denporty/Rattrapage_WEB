@@ -64,11 +64,14 @@ class TodoContextProvider extends React.Component {
                 todo.customerPhoneNumber = data.customerPhoneNumber;
                 todo.companyPhoneNumber = data.companyPhoneNumber;
                 todo.firstField = data.firstField;
+                todo.firstPrice = data.firstPrice;
                 todo.secondField = data.secondField;
                 todo.secondPrice = data.secondPrice;
                 todo.thirdField = data.thirdField;
                 todo.thirdPrice = data.thirdPrice;
                 todo.total = data.total;
+                todo.trackingNumber = data.trackingNumber;
+                todo.validationStep = data.validationStep;
                 this.setState({
                     todos: todos,
                 });

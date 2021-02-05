@@ -121,6 +121,7 @@ function SearchList(){
                         <TableCell></TableCell>
                         <TableCell></TableCell>
                         <TableCell></TableCell>
+                        <TableCell></TableCell>
                         <TableCell>Actions</TableCell>
                     </TableRow>
                 </TableHead>
@@ -235,7 +236,7 @@ function SearchList(){
                         endAdornment: <Fragment>
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown(false);
-                        }}><DoneIcon/></IconButton>
+                        }}></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -251,7 +252,7 @@ function SearchList(){
                         endAdornment: <Fragment>
                          <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown1(false);
-                        }}><DoneIcon/></IconButton>
+                        }}></IconButton>
                          </Fragment>,
                       }}
                       />

@@ -10,6 +10,8 @@ import AppSnackbar from './AppSnackbar';
 import Navigation from './Navigation';
 import TodoTable from './TodoTable';
 import SearchList from './SearchList';
+import CheckQuote from './CheckQuote';
+import SearchQuote from './SearchQuote';
 
 const TodoList = () => (
     <TodoContextProvider>
@@ -22,6 +24,13 @@ const SearchElements = () => (
     <TodoContextProvider>
         <AppSnackbar/>
         <SearchList/>
+    </TodoContextProvider>
+);
+
+const QuoteList = () => (
+    <TodoContextProvider>
+        <AppSnackbar/>
+        <CheckQuote/>
     </TodoContextProvider>
 );
 
@@ -40,7 +49,10 @@ const Router = () => {
             <Redirect exact from="/" to="/todo-list"/>
             <Route exact path="/todo-list" component={TodoList}/>
             <Route exact path="/tag-list" component={SearchElements}/>
+            <Route exact path="/check-quote" component={QuoteList}/>
+            <Route exact path="/search-quote" component={SearchQuote}/>
             <Route component={NotFound}/>
+
         </Switch>
         </BrowserRouter>
     );

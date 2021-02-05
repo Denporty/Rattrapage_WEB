@@ -56,6 +56,7 @@ function TodoTable(){
     const [addTodo12, setAddTodo12] = useState('');  
     const [addTodo13, setAddTodo13] = useState('');
     const [addTodo14, setAddTodo14] = useState('');
+    const [addTodo15, setAddTodo15] = useState('');
 
     const [editIsShown, setEditIsShown] = useState(false);
     const [editIsShown1, setEditIsShown1] = useState(false);
@@ -72,6 +73,7 @@ function TodoTable(){
     const [editIsShown12, setEditIsShown12] = useState(false);
     const [editIsShown13, setEditIsShown13] = useState(false);
     const [editIsShown14, setEditIsShown14] = useState(false);
+    const [editIsShown15, setEditIsShown15] = useState(false);
 
     const [editTodo, setEditTodo] = useState('');
     const [editTodo1, setEditTodo1] = useState('');
@@ -88,6 +90,7 @@ function TodoTable(){
     const [editTodo12, setEditTodo12] = useState('');   
     const [editTodo13, setEditTodo13] = useState('');  
     const [editTodo14, setEditTodo14] = useState('');  
+    const [editTodo15, setEditTodo15] = useState('');  
     
     
 
@@ -98,12 +101,13 @@ function TodoTable(){
         return (
             <Fragment>
             <form onSubmit={(event) => {
-                context.createTodo(event, {name: addTodo, company: addTodo1, customer: addTodo2, customerPostalCode: addTodo3, companyPostalCode: addTodo4, customerPhoneNumber: addTodo5, companyPhoneNumber: addTodo6, firstField: addTodo7, firstPrice: addTodo8, secondField: addTodo9, secondPrice: addTodo10, thirdField: addTodo11, thirdPrice: addTodo12, total: addTodo13, trackingNumber: addTodo14});
+                context.createTodo(event, {name: addTodo, company: addTodo1, customer: addTodo2, customerPostalCode: addTodo3, companyPostalCode: addTodo4, customerPhoneNumber: addTodo5, companyPhoneNumber: addTodo6, firstField: addTodo7, firstPrice: addTodo8, secondField: addTodo9, secondPrice: addTodo10, thirdField: addTodo11, thirdPrice: addTodo12, total: addTodo13, trackingNumber: addTodo14, validationStep: addTodo15});
                 }}>
             <Table>
                 <TableHead className={classes.thead}>
                     <TableRow>
                         <TableCell>MonDevis.fr</TableCell>
+                        <TableCell></TableCell>
                         <TableCell></TableCell>
                         <TableCell></TableCell>
                         <TableCell></TableCell>
@@ -128,7 +132,7 @@ function TodoTable(){
                                 setAddTodo(event.target.value)
                                 }} label="Intitulé du devis"/>
                                                        </TableCell>
-                                                       <TableCell className={classes.width4}></TableCell>
+                                                       <TableCell></TableCell>
                             <TableCell>
                             <TextField className={classes.width} value={addTodo1} onChange={(event) => {
                                 setAddTodo1(event.target.value)
@@ -139,12 +143,12 @@ function TodoTable(){
                             </TableCell>
                             <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                            <TextField className={classes.width} value={addTodo3} onChange={(event) => {
+                            <TextField className={classes.width3} value={addTodo3} onChange={(event) => {
                                 setAddTodo3(event.target.value)
                                 }} label="Code postal client"/> 
-                            <TextField className={classes.width} value={addTodo4} onChange={(event) => {
+                            <TextField className={classes.width3} value={addTodo4} onChange={(event) => {
                                 setAddTodo4(event.target.value)
-                                }} label="Code postal societe"/> 
+                                }} label="ZIP societe"/> 
                             </TableCell>
                             <TableCell className={classes.width4}></TableCell>
                             <TableCell>
@@ -157,28 +161,28 @@ function TodoTable(){
                             </TableCell>
                             <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                            <TextField className={classes.width} value={addTodo7} onChange={(event) => {
+                            <TextField className={classes.width3} value={addTodo7} onChange={(event) => {
                                 setAddTodo7(event.target.value)
                                 }} label="Premiere ligne"/> 
-                            <TextField className={classes.width} value={addTodo8} onChange={(event) => {
+                            <TextField className={classes.width3} value={addTodo8} onChange={(event) => {
                                 setAddTodo8(event.target.value)
                                 }} label="Prix ligne 1"/> 
                             </TableCell>
                             <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                            <TextField className={classes.width} value={addTodo9} onChange={(event) => {
+                            <TextField className={classes.width3} value={addTodo9} onChange={(event) => {
                                 setAddTodo9(event.target.value)
                                 }} label="Seconde ligne"/> 
-                            <TextField className={classes.width} value={addTodo10} onChange={(event) => {
+                            <TextField className={classes.width3} value={addTodo10} onChange={(event) => {
                                 setAddTodo10(event.target.value)
                                 }} label="Prix ligne 2"/> 
                             </TableCell>
                             <TableCell className={classes.width4}></TableCell>
                             <TableCell>
-                            <TextField className={classes.width} value={addTodo11} onChange={(event) => {
+                            <TextField className={classes.width3} value={addTodo11} onChange={(event) => {
                                 setAddTodo11(event.target.value)
                                 }} label="Troisieme ligne"/> 
-                            <TextField className={classes.width} value={addTodo12} onChange={(event) => {
+                            <TextField className={classes.width3} value={addTodo12} onChange={(event) => {
                                 setAddTodo12(event.target.value)
                                 }} label="Prix ligne 3"/> 
                             </TableCell>
@@ -191,12 +195,13 @@ function TodoTable(){
                                 setAddTodo14(event.target.value)
                                 }} label="N° de devis"/> 
                             </TableCell>
-
+                            
                             <TableCell>
                             <IconButton type="submit">
                                 <AddIcon/>
                             </IconButton>
                         </TableCell>
+                        <TableCell/>
                     </TableRow>
                     <TableRow>
                         <TableCell>Intitulé du devis</TableCell>
@@ -214,6 +219,7 @@ function TodoTable(){
                         <TableCell>Montant troisiéme ligne</TableCell>
                         <TableCell>Total</TableCell>
                         <TableCell>N° de devis</TableCell>
+                        <TableCell>Statut</TableCell>
                     </TableRow>
                     {context.todos.slice().reverse().map((todo, index) => (
                     <TableRow key={'todo ' + index}>
@@ -223,7 +229,7 @@ function TodoTable(){
                     <TextField value={editTodo} onChange={(event) => {setEditTodo(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -239,7 +245,7 @@ function TodoTable(){
                     <TextField value={editTodo1} onChange={(event) => {setEditTodo1(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown1(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -255,7 +261,7 @@ function TodoTable(){
                     <TextField value={editTodo2} onChange={(event) => {setEditTodo2(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo2, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo2, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown2(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -271,7 +277,7 @@ function TodoTable(){
                     <TextField value={editTodo3} onChange={(event) => {setEditTodo3(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown3(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -287,7 +293,7 @@ function TodoTable(){
                     <TextField value={editTodo4} onChange={(event) => {setEditTodo4(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id, name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id, name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown4(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -304,7 +310,7 @@ function TodoTable(){
                     <TextField value={editTodo5} onChange={(event) => {setEditTodo5(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown5(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -320,7 +326,7 @@ function TodoTable(){
                     <TextField value={editTodo6} onChange={(event) => {setEditTodo6(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown6(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -336,7 +342,7 @@ function TodoTable(){
                     <TextField value={editTodo7} onChange={(event) => {setEditTodo7(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown7(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -352,7 +358,7 @@ function TodoTable(){
                     <TextField value={editTodo8} onChange={(event) => {setEditTodo8(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown8(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -368,7 +374,7 @@ function TodoTable(){
                     <TextField value={editTodo9} onChange={(event) => {setEditTodo9(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown9(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -384,7 +390,7 @@ function TodoTable(){
                     <TextField value={editTodo10} onChange={(event) => {setEditTodo10(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown10(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -400,7 +406,7 @@ function TodoTable(){
                     <TextField value={editTodo11} onChange={(event) => {setEditTodo11(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown11(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -416,7 +422,7 @@ function TodoTable(){
                     <TextField value={editTodo12} onChange={(event) => {setEditTodo12(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown12(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -432,7 +438,7 @@ function TodoTable(){
                     <TextField value={editTodo13} onChange={(event) => {setEditTodo13(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14});
+                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown13(false);
                         }}><DoneIcon/></IconButton>
                          </Fragment>,
@@ -454,7 +460,17 @@ function TodoTable(){
                     </TableCell>
 
                     <TableCell>
-                    <IconButton onClick={() => {setEditIsShown(todo.id); setEditIsShown1(todo.id) ; setEditIsShown2(todo.id); setEditIsShown3(todo.id) ; setEditIsShown4(todo.id); setEditIsShown5(todo.id) ; setEditIsShown6(todo.id); setEditIsShown7(todo.id) ; setEditIsShown8(todo.id); setEditIsShown9(todo.id) ; setEditIsShown10(todo.id); setEditIsShown11(todo.id) ; setEditIsShown12(todo.id); setEditIsShown13(todo.id); setEditIsShown14(todo.id); setEditTodo(todo.name); setEditTodo1(todo.company); setEditTodo2(todo.customer); setEditTodo3(todo.customerPostalCode); setEditTodo4(todo.companyPostalCode); setEditTodo5(todo.customerPhoneNumber); setEditTodo6(todo.companyPhoneNumber); setEditTodo7(todo.firstField); setEditTodo8(todo.firstPrice); setEditTodo9(todo.secondField); setEditTodo10(todo.secondPrice); setEditTodo11(todo.thirdField); setEditTodo12(todo.thirdPrice); setEditTodo13(todo.total); setEditTodo14(todo.trackingNumber) }}><EditIcon></EditIcon></IconButton>
+                    {editIsShown15 === todo.id ?
+                    <TextField value={editTodo15}
+
+                      />
+                        :
+                    todo.validationStep
+                    }
+                    </TableCell>
+
+                    <TableCell>
+                    <IconButton onClick={() => {setEditIsShown(todo.id); setEditIsShown1(todo.id) ; setEditIsShown2(todo.id); setEditIsShown3(todo.id) ; setEditIsShown4(todo.id); setEditIsShown5(todo.id) ; setEditIsShown6(todo.id); setEditIsShown7(todo.id) ; setEditIsShown8(todo.id); setEditIsShown9(todo.id) ; setEditIsShown10(todo.id); setEditIsShown11(todo.id) ; setEditIsShown12(todo.id); setEditIsShown13(todo.id); setEditIsShown14(todo.id); setEditIsShown15(todo.id); setEditTodo(todo.name); setEditTodo1(todo.company); setEditTodo2(todo.customer); setEditTodo3(todo.customerPostalCode); setEditTodo4(todo.companyPostalCode); setEditTodo5(todo.customerPhoneNumber); setEditTodo6(todo.companyPhoneNumber); setEditTodo7(todo.firstField); setEditTodo8(todo.firstPrice); setEditTodo9(todo.secondField); setEditTodo10(todo.secondPrice); setEditTodo11(todo.thirdField); setEditTodo12(todo.thirdPrice); setEditTodo13(todo.total); setEditTodo14(todo.trackingNumber); setEditTodo15(todo.validationStep) }}><EditIcon></EditIcon></IconButton>
                         <IconButton><DeleteIcon onClick={() => {setDeleteConfirmationIsShown(true); setTodoToBeDeleted(todo)}}></DeleteIcon></IconButton>
                     </TableCell>
                     </TableRow>

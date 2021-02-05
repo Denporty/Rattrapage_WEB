@@ -204,6 +204,7 @@ class TodoType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Todo::class,
             'csrf_protection' => false,
+            'allow_extra_fields' => true
         ]);
     }
 }

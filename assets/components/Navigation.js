@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import {AppBar, Toolbar, IconButton, Box, Button, Drawer, List, ListItem, ListItemIcon, makeStyles, Typography} from '@material-ui/core';
-import {Menu as MenuIcon, List as ListIcon} from '@material-ui/icons';
+import {Menu as MenuIcon} from '@material-ui/icons';
 import SearchIcon from '@material-ui/icons/Search';
+import FindInPageIcon from '@material-ui/icons/FindInPage';
+import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 const useStyles = makeStyles(theme => ({
     menuIcon: {
         marginRight: theme.spacing(2),
     },
     list: {
-        width: '250px'
+        width: '270px'
     },
     link: {
         textDecoration: 'none',
@@ -24,8 +27,10 @@ const Navigation = () => {
         setDrawerOpen(!drawerOpen);
     };
     const drawerItems = [
-        {text: 'Liste des devis', icon: <ListIcon/>, link: '/todo-list',},
-        {text: 'Rechercher un devis', icon: <SearchIcon/>, link: 'tag-list',},
+        {text: 'Créer et modifier un devis', icon: <NoteAddIcon/>, link: '/todo-list',},
+        {text: 'Validation devis', icon: <PlaylistAddCheckIcon/>, link: '/tag-list',},
+        {text: 'Vos devis', icon: <FindInPageIcon/>, link: '/check-quote',},
+        {text: 'Rechercher un devis', icon: <SearchIcon/>, link: '/search-quote',},
     ];
     return(
         <AppBar position="fixed">
