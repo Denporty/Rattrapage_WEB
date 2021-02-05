@@ -92,7 +92,12 @@ class Todo
      */
     private $trackingNumber;
 
-    public function getId(): ?int
+        /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $validationStep;
+
+    public function getId(): ?string
     {
         return $this->id;
     }
@@ -275,8 +280,19 @@ class Todo
 
         return $this;
     }
+    public function getValidationStep(): ?string
+    {
+        return $this->validationStep;
+    }
+
+    public function setValidationStep(string $validationStep): self
+    {
+        $this->validationStep = $validationStep;
+
+        return $this;
+    }
     public function toArray()
     {
-        return ['id' => $this->id, 'name' => $this->name, 'company' => $this->company, 'customer' => $this->customer, 'customerPostalCode' => $this->customerPostalCode, 'companyPostalCode' => $this->companyPostalCode, 'customerPhoneNumber' => $this->customerPhoneNumber, 'companyPhoneNumber' => $this->companyPhoneNumber, 'firstField' => $this->firstField, 'firstPrice' => $this->firstPrice, 'secondField' => $this->secondField, 'secondPrice' => $this->secondPrice, 'thirdField' => $this->thirdField, 'thirdPrice' => $this->thirdPrice, 'total' => $this->total, 'trackingNumber' => $this->trackingNumber];
+        return ['id' => $this->id, 'name' => $this->name, 'company' => $this->company, 'customer' => $this->customer, 'customerPostalCode' => $this->customerPostalCode, 'companyPostalCode' => $this->companyPostalCode, 'customerPhoneNumber' => $this->customerPhoneNumber, 'companyPhoneNumber' => $this->companyPhoneNumber, 'firstField' => $this->firstField, 'firstPrice' => $this->firstPrice, 'secondField' => $this->secondField, 'secondPrice' => $this->secondPrice, 'thirdField' => $this->thirdField, 'thirdPrice' => $this->thirdPrice, 'total' => $this->total, 'trackingNumber' => $this->trackingNumber, 'validationStep' => $this->validationStep];
     }
 }

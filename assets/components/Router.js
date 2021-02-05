@@ -18,6 +18,12 @@ const TodoList = () => (
     </TodoContextProvider>
 );
 
+const SearchElements = () => (
+    <TodoContextProvider>
+        <AppSnackbar/>
+        <SearchList/>
+    </TodoContextProvider>
+);
 
 const useStyles = makeStyles(theme => ({
     divider: theme.mixins.toolbar,
@@ -33,7 +39,7 @@ const Router = () => {
         <Switch>
             <Redirect exact from="/" to="/todo-list"/>
             <Route exact path="/todo-list" component={TodoList}/>
-            <Route exact path="/tag-list" component={SearchList}/>
+            <Route exact path="/tag-list" component={SearchElements}/>
             <Route component={NotFound}/>
         </Switch>
         </BrowserRouter>

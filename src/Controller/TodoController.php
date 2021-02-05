@@ -75,6 +75,7 @@ class TodoController extends AbstractController
        $todo->setThirdPrice($content->thirdPrice);
        $todo->setTotal($content->total);
        $todo->setTrackingNumber($content->trackingNumber);
+
        try {
            $this->entityManager->persist($todo);
            $this->entityManager->flush();
@@ -112,6 +113,7 @@ class TodoController extends AbstractController
         $todo->setThirdField($content->thirdField);
         $todo->setThirdPrice($content->thirdPrice);
         $todo->setTotal($content->total);
+        $todo->setValidationStep($content->validationStep);
 
         try {
             $this->entityManager->flush();
