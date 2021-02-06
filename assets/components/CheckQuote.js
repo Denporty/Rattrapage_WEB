@@ -7,7 +7,9 @@ import TableRow from '@material-ui/core/TableRow';
 import TextField from '@material-ui/core/TextField';
 import React, {useContext, useState, Fragment} from 'react';
 import {TodoContext} from '../contexts/TodoContext';
-import {makeStyles} from '@material-ui/core';
+import {makeStyles, Button} from '@material-ui/core';
+import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
+import {Link} from 'react-router-dom';
 
 
 
@@ -29,7 +31,16 @@ const useStyles = makeStyles(theme=>({
     },
     width4: {
         width: "5%",
-    }
+    },
+    link: {
+        textDecoration: 'none',
+        color: theme.palette.text.primary,
+    },
+    pdf: {
+        display: 'flex',
+        margin: 'auto',
+        justifyContent: 'center',
+    },
 }));
 
 
@@ -83,6 +94,7 @@ function CheckQuote(){
                         <TableCell>Client</TableCell>
                         <TableCell>N° de devis</TableCell>
                         <TableCell>Statut du devis</TableCell>
+                        <TableCell>Télécharger PDF</TableCell>
                     </TableRow>
                     {context.todos.slice().reverse().map((todo, index) => (
                     <TableRow key={'todo ' + index}>
@@ -164,8 +176,11 @@ function CheckQuote(){
                     todo.validationStep
                     }
                     </TableCell>
-
-
+                    <Link className={classes.link} to="/pdf" >
+                        <TableCell className={classes.pdf}>
+                            <PictureAsPdfIcon link="/pdf"/>
+                        </TableCell>
+                    </Link>
                     </TableRow>
                     ))}
                 </TableBody>

@@ -12,6 +12,7 @@ import TodoTable from './TodoTable';
 import SearchList from './SearchList';
 import CheckQuote from './CheckQuote';
 import SearchQuote from './SearchQuote';
+import PdfGenerate from './PdfGenerate';
 
 const TodoList = () => (
     <TodoContextProvider>
@@ -51,6 +52,7 @@ const Router = () => {
             <Route exact path="/tag-list" component={SearchElements}/>
             <Route exact path="/check-quote" component={QuoteList}/>
             <Route exact path="/search-quote" component={SearchQuote}/>
+            <Route exact path="/pdf" component={PdfGenerate}/>
             <Route component={NotFound}/>
 
         </Switch>

@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme=>({
     list: {
         backgroundColor: theme.palette.secondary.main,
     },
+    gray: {
+        color: theme.palette.secondary.main,
+    },
     width: {
         width: "120%",
     },
@@ -33,6 +36,19 @@ const useStyles = makeStyles(theme=>({
     },
     width4: {
         width: "5%",
+    },
+    container: {
+        backgroundColor: theme.palette.secondary.main,
+    },
+    delete: {
+        color:  "#c42d2d",
+    },
+    edit: {
+        color: "#39ad37",
+    },
+    check: {
+        width: "5px",
+        height: "5px",
     }
 }));
 
@@ -126,89 +142,7 @@ function SearchList(){
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow className={classes.list}>
-                        <TableCell>
-                            <TextField  className={classes.width} value={addTodo} onChange={(event) => {
-                                setAddTodo(event.target.value)
-                                }} label="Intitulé du devis"/>
-                                                       </TableCell>
-                                                       <TableCell className={classes.width4}></TableCell>
-                            <TableCell>
-                            <TextField className={classes.width} value={addTodo1} onChange={(event) => {
-                                setAddTodo1(event.target.value)
-                                }} label="Societe émettrice"/> 
-                                <TextField value={addTodo2} onChange={(event) => {
-                                setAddTodo2(event.target.value)
-                                }} label="Client"/> 
-                            </TableCell>
-                            <TableCell className={classes.width4}></TableCell>
-                            <TableCell>
-                            <TextField className={classes.width} value={addTodo3} onChange={(event) => {
-                                setAddTodo3(event.target.value)
-                                }} label="Code postal client"/> 
-                            <TextField className={classes.width} value={addTodo4} onChange={(event) => {
-                                setAddTodo4(event.target.value)
-                                }} label="Code postal societe"/> 
-                            </TableCell>
-                            <TableCell className={classes.width4}></TableCell>
-                            <TableCell>
-                            <TextField className={classes.width3} value={addTodo5} onChange={(event) => {
-                                setAddTodo5(event.target.value)
-                                }} label="N° téléphone client"/> 
-                            <TextField className={classes.width3} value={addTodo6} onChange={(event) => {
-                                setAddTodo6(event.target.value)
-                                }} label="N° téléphone societe"/> 
-                            </TableCell>
-                            <TableCell className={classes.width4}></TableCell>
-                            <TableCell>
-                            <TextField className={classes.width} value={addTodo7} onChange={(event) => {
-                                setAddTodo7(event.target.value)
-                                }} label="Premiere ligne"/> 
-                            <TextField className={classes.width} value={addTodo8} onChange={(event) => {
-                                setAddTodo8(event.target.value)
-                                }} label="Prix ligne 1"/> 
-                            </TableCell>
-                            <TableCell className={classes.width4}></TableCell>
-                            <TableCell>
-                            <TextField className={classes.width} value={addTodo9} onChange={(event) => {
-                                setAddTodo9(event.target.value)
-                                }} label="Seconde ligne"/> 
-                            <TextField className={classes.width} value={addTodo10} onChange={(event) => {
-                                setAddTodo10(event.target.value)
-                                }} label="Prix ligne 2"/> 
-                            </TableCell>
-                            <TableCell className={classes.width4}></TableCell>
-                            <TableCell>
-                            <TextField className={classes.width} value={addTodo11} onChange={(event) => {
-                                setAddTodo11(event.target.value)
-                                }} label="Troisieme ligne"/> 
-                            <TextField className={classes.width} value={addTodo12} onChange={(event) => {
-                                setAddTodo12(event.target.value)
-                                }} label="Prix ligne 3"/> 
-                            </TableCell>
-                            <TableCell className={classes.width4}></TableCell>
-                            <TableCell>
-                        <TextField className={classes.width} value={addTodo13} onChange={(event) => {
-                                setAddTodo13(event.target.value)
-                                }} label="Total"/> 
-                        <TextField className={classes.width3} value={addTodo14} onChange={(event) => {
-                                setAddTodo14(event.target.value)
-                                }} label="N° de devis"/> 
-                            </TableCell>
-                            <TableCell>
-                            <TextField className={classes.width3} value={addTodo15} onChange={(event) => {
-                                setAddTodo15(event.target.value)
-                                }} label="Statut de devis"/> 
-                            </TableCell>
-                            
-
-                            <TableCell>
-                            <IconButton type="submit">
-                                <AddIcon/>
-                            </IconButton>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
+                    <TableRow className={classes.container}>
                         <TableCell>Intitulé du devis</TableCell>
                         <TableCell>Société émettrice</TableCell>
                         <TableCell>Client</TableCell>
@@ -225,6 +159,7 @@ function SearchList(){
                         <TableCell>Total</TableCell>
                         <TableCell>N° de devis</TableCell>
                         <TableCell>Statut du devis</TableCell>
+                        <TableCell/>
                     </TableRow>
                     {context.todos.slice().reverse().map((todo, index) => (
                     <TableRow key={'todo ' + index}>
@@ -396,9 +331,9 @@ function SearchList(){
                     <TextField value={editTodo15} onChange={(event) => {setEditTodo15(event.target.value)}}
                     InputProps={{
                         endAdornment: <Fragment>
-                         <IconButton onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
+                         <IconButton className={classes.check} onClick={() => {context.updateTodo({id : todo.id,name: editTodo, company: editTodo1, customer: editTodo2, customerPostalCode: editTodo3, companyPostalCode: editTodo4, customerPhoneNumber: editTodo5, companyPhoneNumber: editTodo6, firstField: editTodo7, firstPrice: editTodo8, secondField: editTodo9, secondPrice: editTodo10, thirdField: editTodo11, thirdPrice: editTodo12, total: editTodo13, trackingNumber: editTodo14, validationStep: editTodo15});
                          setEditIsShown15(false);
-                        }}><DoneIcon/></IconButton>
+                        }}><DoneIcon className={classes.edit}/></IconButton>
                          </Fragment>,
                       }}
                       />
@@ -408,8 +343,8 @@ function SearchList(){
                     </TableCell>
 
                     <TableCell>
-                    <IconButton onClick={() => {setEditIsShown(todo.id); setEditIsShown1(todo.id) ; setEditIsShown2(todo.id); setEditIsShown3(todo.id) ; setEditIsShown4(todo.id); setEditIsShown5(todo.id) ; setEditIsShown6(todo.id); setEditIsShown7(todo.id) ; setEditIsShown8(todo.id); setEditIsShown9(todo.id) ; setEditIsShown10(todo.id); setEditIsShown11(todo.id) ; setEditIsShown12(todo.id); setEditIsShown13(todo.id); setEditIsShown14(todo.id); setEditIsShown15(todo.id); setEditTodo(todo.name); setEditTodo1(todo.company); setEditTodo2(todo.customer); setEditTodo3(todo.customerPostalCode); setEditTodo4(todo.companyPostalCode); setEditTodo5(todo.customerPhoneNumber); setEditTodo6(todo.companyPhoneNumber); setEditTodo7(todo.firstField); setEditTodo8(todo.firstPrice); setEditTodo9(todo.secondField); setEditTodo10(todo.secondPrice); setEditTodo11(todo.thirdField); setEditTodo12(todo.thirdPrice); setEditTodo13(todo.total); setEditTodo14(todo.trackingNumber); setEditTodo15(todo.validationStep) }}><EditIcon></EditIcon></IconButton>
-                        <IconButton><DeleteIcon onClick={() => {setDeleteConfirmationIsShown(true); setTodoToBeDeleted(todo)}}></DeleteIcon></IconButton>
+                    <IconButton onClick={() => {setEditIsShown(todo.id); setEditIsShown1(todo.id) ; setEditIsShown2(todo.id); setEditIsShown3(todo.id) ; setEditIsShown4(todo.id); setEditIsShown5(todo.id) ; setEditIsShown6(todo.id); setEditIsShown7(todo.id) ; setEditIsShown8(todo.id); setEditIsShown9(todo.id) ; setEditIsShown10(todo.id); setEditIsShown11(todo.id) ; setEditIsShown12(todo.id); setEditIsShown13(todo.id); setEditIsShown14(todo.id); setEditIsShown15(todo.id); setEditTodo(todo.name); setEditTodo1(todo.company); setEditTodo2(todo.customer); setEditTodo3(todo.customerPostalCode); setEditTodo4(todo.companyPostalCode); setEditTodo5(todo.customerPhoneNumber); setEditTodo6(todo.companyPhoneNumber); setEditTodo7(todo.firstField); setEditTodo8(todo.firstPrice); setEditTodo9(todo.secondField); setEditTodo10(todo.secondPrice); setEditTodo11(todo.thirdField); setEditTodo12(todo.thirdPrice); setEditTodo13(todo.total); setEditTodo14(todo.trackingNumber); setEditTodo15(todo.validationStep) }}><EditIcon className={classes.gray}></EditIcon></IconButton>
+                        <IconButton><DeleteIcon className={classes.delete} onClick={() => {setDeleteConfirmationIsShown(true); setTodoToBeDeleted(todo)}}></DeleteIcon></IconButton>
                     </TableCell>
                     </TableRow>
                     ))}

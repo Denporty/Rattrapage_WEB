@@ -1,12 +1,13 @@
 import React from 'react';
 import {MuiThemeProvider, createMuiTheme, CssBaseline} from '@material-ui/core';
-import { blueGrey, indigo, lightBlue } from '@material-ui/core/colors';
+import { blueGrey, indigo, red } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
     palette: {
         type: "dark",
         primary: indigo,
         secondary: blueGrey,
+        test: red,
     }
 });
 

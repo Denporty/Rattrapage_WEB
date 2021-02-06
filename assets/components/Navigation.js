@@ -36,10 +36,9 @@ const Navigation = () => {
         <AppBar position="fixed">
             <Toolbar>
                 <IconButton onClick={toggleDrawer} className={classes.menuIcon} edge="start"><MenuIcon/></IconButton>
-                <Link style={{flexGrow: 1}} href="/"  color="textPrimary">
-                <Typography underline="none" color="textPrimary" variant="h6">TodoApp</Typography>
+                <Link style={{flexGrow: 1, textDecoration: "none"}} to="/todo-list"  color="textPrimary">
+                <Typography underline="none" color="textPrimary" variant="h6">Mes Devis</Typography>
                 </Link>
-                <Button size="large">Login</Button>
             </Toolbar>
             <Drawer anchor="left" variant="temporary" onClose={toggleDrawer} open={drawerOpen}>
                 <List className={classes.list}>
