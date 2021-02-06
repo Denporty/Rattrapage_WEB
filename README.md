@@ -18,6 +18,9 @@ Pour démarrer le projet il faut :
 
 Quand toutes ces étapes sont terminées vous devriez pouvoir accéder au projet via l'URL http://127.0.0.1:8000/
 
+Si rien n'apparait ou qu'il y a une erreur verifier les champs en base de donnée s'il n'y a pas dans "todo" de champs "tracking_number" et/ou "validation_step" il vous faut le(s) rajouté(s)
+
+
 ## Realisation
 ### Fait avec
 
