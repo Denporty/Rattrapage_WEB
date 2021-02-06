@@ -26,5 +26,5 @@ Quand toutes ces étapes sont terminées vous devriez pouvoir accéder au projet
 
 ### Bibliographie
 
-J'ai suivi ce tuto afin de réaliser mon projet : https://www.youtube.com/watch?v=qYgf9v3PNu8&list=PLKgdkWe819ixRoJMWqQpebmUkqKaiTMBl
-Pour me debug j'ai majoritairement utiliser stackOverflow
+* J'ai suivi ce tuto afin de réaliser mon projet : https://www.youtube.com/watch?v=qYgf9v3PNu8&list=PLKgdkWe819ixRoJMWqQpebmUkqKaiTMBl
+* Pour me debug j'ai majoritairement utiliser stackOverflow
