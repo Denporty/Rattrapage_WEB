@@ -14,7 +14,7 @@ Pour démarrer le projet il faut :
 - Allez dans le projet via la cmd ;
 - Executez les commandes : ``yarn install``, ``composer update``
 - Configurez le .env
-- Executez les commandes ``php bin/console make:migration:migrate``, ``symfony server:start``
+- Executez les commandes ``php bin/console make:migration``, ``php bin/console doctrine:migrations:migrate``,  ``symfony server:start``
 
 Quand toutes ces étapes sont terminées vous devriez pouvoir accéder au projet via l'URL http://127.0.0.1:8000/
 
